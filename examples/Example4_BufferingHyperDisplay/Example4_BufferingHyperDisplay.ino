@@ -1,5 +1,5 @@
 /*
-SparkFun TFT LCD 2.4" 240x320 using HyperDisplay
+SparkFun TFT LCD 2.4" 320x240 using HyperDisplay
 Example4 Buffering HyperDisplay
 
 In this example we will look at buffering in HyperDisplay.
@@ -23,7 +23,7 @@ Modified: 9/22/20
 This software is open source. Use it how you like, just don't hurt people.
 
 */
-#include "HyperDisplay_ILI9341_240x320_4WSPI.h" // Click here to get the library: http://librarymanager/All#SparkFun_HyperDisplay_ILI9341_240x320_4WSPI
+#include "HyperDisplay_4DLCD-320240_4WSPI.h" // Click here to get the library: https://github.com/sparkfun/HyperDisplay_4DLCD-320240_ArduinoLibrary
                                            // Click here to get the mid-level library: http://librarymanager/All#SparkFun_HyperDisplay_ILI9341
                                            // Click here to get HyperDisplay (top level): http://librarymanager/All#SparkFun_HyperDisplay
 
@@ -35,7 +35,7 @@ This software is open source. Use it how you like, just don't hurt people.
 #define SPI_PORT SPI
 #define SPI_SPEED 32000000    // Requests host uC to use the fastest possible SPI speed up to 32 MHz
 
-ILI9341_240x320_4WSPI myTFT;
+LCD320240_4WSPI myTFT;
 
 ILI9341_color_16_t defaultColor;
 
@@ -45,7 +45,7 @@ void setup() {
   //Uncomment this if you want to wait to println until the serial monitor is open.
   //while (!SERIAL_PORT); //Wait for Serial Monitor to Open
 
-  SERIAL_PORT.println("Example4 HyperDisplay : SparkFun TFT LCD 2.4in Breakout");
+  SERIAL_PORT.println("Example4 HyperDisplay : SparkFun TFT LCD 2.4in");
 
   myTFT.begin(DC_PIN, CS_PIN, PWM_PIN, SPI_PORT, SPI_SPEED);  // This is a non-hyperdisplay function, but it is required to make the display work
   myTFT.setInterfacePixelFormat(ILI9341_PXLFMT_16);

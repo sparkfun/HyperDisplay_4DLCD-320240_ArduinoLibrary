@@ -1,5 +1,5 @@
 /*
-SparkFun TFT LCD 2.4" 240x320 using HyperDisplay
+SparkFun TFT LCD 2.4" 320x240 using HyperDisplay
 Example1 Display Test
 
 This example can be used as a visual indication that the display is working as expected.
@@ -9,7 +9,7 @@ Modified: 9/22/20
 This software is open source. Use it how you like, just don't hurt people.
 
 */
-#include "HyperDisplay_ILI9341_240x320_4WSPI.h" // Click here to get the library: http://librarymanager/All#SparkFun_HyperDisplay_ILI9341_240x320_4WSPI
+#include "HyperDisplay_4DLCD-320240_4WSPI.h" // Click here to get the library: https://github.com/sparkfun/HyperDisplay_4DLCD-320240_ArduinoLibrary
                                            // Click here to get the mid-level library: http://librarymanager/All#SparkFun_HyperDisplay_ILI9341
                                            // Click here to get HyperDisplay (top level): http://librarymanager/All#SparkFun_HyperDisplay
 
@@ -21,7 +21,7 @@ This software is open source. Use it how you like, just don't hurt people.
 #define SPI_PORT SPI
 #define SPI_SPEED 32000000        // Requests host uC to use the fastest possible SPI speed up to 32 MHz
 
-ILI9341_240x320_4WSPI myTFT;           // The ILI9341_240x320_4WSPI class is used for this breakout, and we will call our object myTFT
+LCD320240_4WSPI myTFT;           // The LCD320240_4WSPI class is used for this breakout, and we will call our object myTFT
 
 ILI9341_color_16_t defaultColor; // Global objects are used for default colors so that they are always in-scope
 
@@ -31,7 +31,7 @@ void setup() {
   //Uncomment this if you want to wait to println until the serial monitor is open.
   //while (!SERIAL_PORT); //Wait for Serial Monitor to Open
 
-  SERIAL_PORT.println("Example1 Display Test : SparkFun TFT LCD 2.4in Breakout");
+  SERIAL_PORT.println("Example1 Display Test : SparkFun TFT LCD 2.4in");
 
   myTFT.begin(DC_PIN, CS_PIN, PWM_PIN, SPI_PORT, SPI_SPEED);
   myTFT.setInterfacePixelFormat(ILI9341_PXLFMT_16);

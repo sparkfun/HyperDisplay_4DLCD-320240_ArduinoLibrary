@@ -1,17 +1,17 @@
-#include "HyperDisplay_ILI9341_240x320_4WSPI.h"
+#include "HyperDisplay_4DLCD-320240_4WSPI.h"
 
 ////////////////////////////////////////////////////////////
 //					ILI9341_240x320 Implementation			  //
 ////////////////////////////////////////////////////////////
-char_info_t ILI9341_240x320_Default_CharInfo;
-wind_info_t ILI9341_240x320_Default_Window;
+char_info_t LCD320240_Default_CharInfo;
+wind_info_t LCD320240_Default_Window;
 
-ILI9341_240x320_4WSPI::ILI9341_240x320_4WSPI() : hyperdisplay(ILI9341_240x320_WIDTH, ILI9341_240x320_HEIGHT), ILI9341_4WSPI(ILI9341_240x320_WIDTH, ILI9341_240x320_HEIGHT)
+LCD320240_4WSPI::LCD320240_4WSPI() : hyperdisplay(LCD320240_WIDTH, LCD320240_HEIGHT), ILI9341_4WSPI(LCD320240_WIDTH, LCD320240_HEIGHT)
 {
 
 }
 
-ILI9341_STAT_t ILI9341_240x320_4WSPI::begin(uint8_t dcPin, uint8_t csPin, uint8_t blPin, SPIClass &spiInterface, uint32_t spiFreq)
+ILI9341_STAT_t LCD320240_4WSPI::begin(uint8_t dcPin, uint8_t csPin, uint8_t blPin, SPIClass &spiInterface, uint32_t spiFreq)
 {
 	// Call the functions to setup the super classes
 // Associate 
@@ -59,7 +59,7 @@ ILI9341_STAT_t ILI9341_240x320_4WSPI::begin(uint8_t dcPin, uint8_t csPin, uint8_
 	return ILI9341_STAT_Nominal;
 }
 
-ILI9341_STAT_t ILI9341_240x320_4WSPI::defaultConfigure( void )
+ILI9341_STAT_t LCD320240_4WSPI::defaultConfigure( void )
 {
 	ILI9341_STAT_t retval = ILI9341_STAT_Nominal;
 
@@ -95,10 +95,10 @@ ILI9341_STAT_t ILI9341_240x320_4WSPI::defaultConfigure( void )
 	retval = setInterfacePixelFormat( 0x05 );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
-	retval = setColumnAddress( ILI9341_240x320_START_COL, ILI9341_240x320_STOP_COL );
+	retval = setColumnAddress( LCD320240_START_COL, LCD320240_STOP_COL );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
-	retval = setRowAddress( ILI9341_240x320_START_ROW, ILI9341_240x320_STOP_ROW );
+	retval = setRowAddress( LCD320240_START_ROW, LCD320240_STOP_ROW );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
 	retval = setMemoryAccessControl( false, true, false, false, true, false );
@@ -126,7 +126,7 @@ ILI9341_STAT_t ILI9341_240x320_4WSPI::defaultConfigure( void )
   	return ILI9341_STAT_Nominal;
 }
 
-void ILI9341_240x320_4WSPI::startup( void )
+void LCD320240_4WSPI::startup( void )
 {
 	// Assume that VDD and VCC are stable when this function is called
 	if(_rst != 0xFF){ digitalWrite( _rst , HIGH); }
@@ -151,7 +151,7 @@ void ILI9341_240x320_4WSPI::startup( void )
 // }
 
 
-void ILI9341_240x320_4WSPI::clearDisplay( void )
+void LCD320240_4WSPI::clearDisplay( void )
 {
 	// Store the old window pointer: 
 	wind_info_t * ptempWind = pCurrentWindow;
@@ -176,13 +176,13 @@ void ILI9341_240x320_4WSPI::clearDisplay( void )
 	pCurrentWindow = ptempWind;
 }
 
-void ILI9341_240x320_4WSPI::setWindowDefaults(wind_info_t * pwindow)
+void LCD320240_4WSPI::setWindowDefaults(wind_info_t * pwindow)
 {
 	// Fills out the default window structure with more or less reasonable defaults
-	pwindow->xMin = ILI9341_240x320_START_COL;
-	pwindow->yMin = ILI9341_240x320_START_ROW;
-	pwindow->xMax = ILI9341_240x320_STOP_COL;
-	pwindow->yMax = ILI9341_240x320_STOP_ROW;
+	pwindow->xMin = LCD320240_START_COL;
+	pwindow->yMin = LCD320240_START_ROW;
+	pwindow->xMax = LCD320240_STOP_COL;
+	pwindow->yMax = LCD320240_STOP_ROW;
 	pwindow->cursorX = 0;							// cursor values are in window coordinates
 	pwindow->cursorY = 0;
 	pwindow->xReset = 0;
@@ -204,7 +204,7 @@ void ILI9341_240x320_4WSPI::setWindowDefaults(wind_info_t * pwindow)
 	setWindowColorSequence(pwindow, NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
 }
 
-void ILI9341_240x320_4WSPI::setBacklight(uint8_t b){
+void LCD320240_4WSPI::setBacklight(uint8_t b){
 #if defined(ARDUINO_ARCH_ESP32)
 	ledcAttachPin(_bl,15);
 	ledcSetup(15,12000,8);

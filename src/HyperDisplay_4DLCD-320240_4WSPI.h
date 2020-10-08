@@ -2,27 +2,27 @@
 // ILI9341_240x320 Display Class    			  
 //
 
-#ifndef _HYPERDISPLAY_ILI9341_240x320_4WSPI_H_
-#define _HYPERDISPLAY_ILI9341_240x320_4WSPI_H_
+#ifndef _HYPERDISPLAY_4DLCD-320240_4WSPI_H_
+#define _HYPERDISPLAY_4DLCD-320240_4WSPI_H_
 
 #include "HyperDisplay_ILI9341.h"
 
 
-#define ILI9341_240x320_WIDTH 		240
-#define ILI9341_240x320_HEIGHT 		320
-#define ILI9341_240x320_START_ROW	0
-#define ILI9341_240x320_START_COL	0
-#define ILI9341_240x320_STOP_ROW 	319
-#define ILI9341_240x320_STOP_COL	239
+#define LCD320240_WIDTH 		240
+#define LCD320240_HEIGHT 		320
+#define LCD320240_START_ROW	0
+#define LCD320240_START_COL	0
+#define LCD320240_STOP_ROW 	319
+#define LCD320240_STOP_COL	239
 
-class ILI9341_240x320_4WSPI : public ILI9341_4WSPI{
+class LCD320240_4WSPI : public ILI9341_4WSPI{
 private:
 protected:
 public:
 
 	
 
-	ILI9341_240x320_4WSPI();	// Constructor
+	LCD320240_4WSPI();	// Constructor
 
 	uint8_t _bl;
 
@@ -40,4 +40,4 @@ public:
 	void setBacklight(uint8_t b);
 };
 
-#endif /* _HYPERDISPLAY_ILI9341_240x320_4WSPI_H_ */
+#endif /* _HYPERDISPLAY_4DLCD-320240_4WSPI_H_ */
