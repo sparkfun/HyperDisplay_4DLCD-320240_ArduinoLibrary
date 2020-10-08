@@ -89,7 +89,10 @@ ILI9341_STAT_t ILI9341_240x320_4WSPI::defaultConfigure( void )
 	retval = setVCOMOffsetControl( true, 0x86 );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 	
-	retval = setInterfacePixelFormat( 0x55 );
+	retval = setInversion( true );
+	if(retval != ILI9341_STAT_Nominal){ return retval; }
+	
+	retval = setInterfacePixelFormat( 0x05 );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
 	retval = setColumnAddress( ILI9341_240x320_START_COL, ILI9341_240x320_STOP_COL );
@@ -98,7 +101,7 @@ ILI9341_STAT_t ILI9341_240x320_4WSPI::defaultConfigure( void )
 	retval = setRowAddress( ILI9341_240x320_START_ROW, ILI9341_240x320_STOP_ROW );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
-	retval = setMemoryAccessControl( false, true, false, false, true, false );//FTFFTF?
+	retval = setMemoryAccessControl( false, true, false, false, true, false );
 	if(retval != ILI9341_STAT_Nominal){ return retval; }
 
 //	retval = setSrcDriverDir( false );
