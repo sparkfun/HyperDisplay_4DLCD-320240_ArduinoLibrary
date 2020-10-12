@@ -1,4 +1,4 @@
-HyperDisplay KWH018ST01 4WSPI Arduino Library
+HyperDisplay 4DLCD-320240 Arduino Library
 ========================================
 
 This is an extension for the [HyperDisplay](https://github.com/sparkfun/SparkFun_HyperDisplay) library that is fully configured for the KWH018ST01 module used on several SparkFun products. 
@@ -7,7 +7,7 @@ Dependencies
 ------------
 You will also need to install these libraries, if you haven't already. Use the Arduino Library Manager or install the ZIP directly. 
 * [HyperDisplay Graphics Library](https://github.com/sparkfun/SparkFun_HyperDisplay)
-* [HyperDisplay ILI9163C Driver](https://github.com/sparkfun/HyperDisplay_ILI9163C_ArduinoLibrary)
+* [HyperDisplay ILI9341 Driver](https://github.com/sparkfun/HyperDisplay_ILI9341_ArduinoLibrary)
 
 
 
@@ -26,7 +26,7 @@ Documentation
 
 Products that use this Library 
 ---------------------------------
-* [SparkFun 1.8 inch TFT Breakout 128x160](https://www.sparkfun.com/products/15143)
+* [SparkFun MicroMod Input and Display Carrier Board](https://www.sparkfun.com/products/16985)
 
 Version History
 ---------------
